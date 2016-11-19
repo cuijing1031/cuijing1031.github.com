@@ -8,7 +8,7 @@
 
 <title>
   
-    归档: 2016
+    彙整: 2016
   
 </title>
 
@@ -76,22 +76,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">分类</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工程化/">工程化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/语言/">语言</a><span class="category-list-count">1</span></li></ul>
+                <a href="javascript:;">類別</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工程化/">工程化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/语言/">语言</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">标签</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li></ul>
+                <a href="javascript:;">標籤</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">2</span></li></ul>
+                <a href="javascript:;">彙整</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">3</span></li></ul>
               </li>
             
           
@@ -194,6 +194,76 @@
       </div>
     </div>
     <a class="read-all-link" href="/2016/11/19/javascript中bind知多少/">阅读全部</a>
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/11/19/配合event-pointer实现1px边框/" >
+  配合pointer-events实现1px边框
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/11/19/配合event-pointer实现1px边框/"><span class="article-date">
+  2016-11-19
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CSS/">CSS</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>##### </p>
+<p>  从乔帮主发布Retina设备开始兴起后，移动端的h5就多了一个烦人的1px。然后设计师们对1px格外青睐，设计稿(750尺寸)中各种1px分割线，1px边框。</p>
+<p>  对于下图中一系列的的1px边框通常的实现方式</p>
+<p>  <img src="/images/1px边框.png" alt="1px系列边框" style="width: 300px; display:block;margin:auto"></p>
+<ol>
+<li><p>在最外层A进行transform:scale(0.5)</p>
+</li>
+<li><p>给每一个B元素加上transform:scale(0.5)</p>
+</li>
+</ol>
+<p>以上两种方式由于transform:scale(0.5)的影响，在写内部元素的大小时，都需要放大两倍，虽然只是*2，但是算起来还是略烦的。</p>
+<p>下面介绍另外一种，pointer-events配合transform:scale(0.5)来实现1px边框的方式：</p>
+<p>html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"b-div"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>css:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.b-div</span> &#123;</div><div class="line">  	<span class="attribute">position</span>: relative</div><div class="line"> 	 <span class="comment">/*</span></div><div class="line"> 	   按照正常的布局计算方式来写</div><div class="line"> 	 */</div><div class="line"> &#125;</div><div class="line"> <span class="comment">/*单独的边框*/</span></div><div class="line"> <span class="selector-class">.b-div</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">	<span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">display</span>: block;</div><div class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">10</span>;</div><div class="line">	<span class="attribute">pointer-events</span>: none;</div><div class="line">	<span class="attribute">box-sizing</span>: border-box;</div><div class="line">	<span class="attribute">height</span>: <span class="number">200%</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">200%</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#fc9153</span>;</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(0.5);</div><div class="line">	<span class="attribute">transform-origin</span>: left top</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  上面通过伪类before来绘制1px边框。 在before上，将<strong>pointer-events的属性设置为none</strong>，边框元素虽然在b-div上层，但是不会有事件的响应,所有的事件会透到b-div上。如此一来，before伪类就仅仅是能”看到“而已</p>
+<p>  配合stylus的话，可以将1px边框的实现抽离出来，写成一个单独的mixin</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">border-1px</span><span class="params">(<span class="variable">$bordercolor</span>, <span class="variable">$bordertopleftradius</span> = <span class="number">0px</span>, <span class="variable">$bordertoprightradius</span> = <span class="number">0px</span>, <span class="variable">$borderbottomleftradius</span> = <span class="number">0px</span>, <span class="variable">$borderbottomrightradius</span> = <span class="number">0px</span>)</span></span></div><div class="line">  &amp;::before</div><div class="line">	<span class="attribute">content</span>: <span class="string">" "</span></div><div class="line">	<span class="attribute">position</span>: absolute</div><div class="line">	<span class="attribute">display</span>: block</div><div class="line">	<span class="attribute">left</span>: <span class="number">0</span></div><div class="line">	<span class="attribute">top</span>: <span class="number">0</span></div><div class="line">	<span class="attribute">z-index</span>: <span class="number">10</span></div><div class="line">	<span class="attribute">pointer-events</span>: none</div><div class="line">	<span class="attribute">box-sizing</span>: border-box</div><div class="line">	<span class="attribute">height</span>: <span class="number">200%</span></div><div class="line">	<span class="attribute">width</span>: <span class="number">200%</span></div><div class="line">	<span class="attribute">overflow</span>: hidden</div><div class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#fc9153</span></div><div class="line">	<span class="attribute">border-top-left-radius</span>: <span class="variable">$bordertopleftradius</span></div><div class="line">	<span class="attribute">border-top-right-radius</span>: <span class="variable">$bordertoprightradius</span></div><div class="line">  	<span class="attribute">border-bottom-left-radius</span>: <span class="variable">$borderbottomleftradius</span></div><div class="line">  	<span class="attribute">border-bottom-right-radius</span>: <span class="variable">$borderbottomrightradius</span></div><div class="line">	<span class="attribute">transform</span>: scale(<span class="number">0.5</span>);</div><div class="line">	<span class="attribute">transform-origin</span>: left top</div></pre></td></tr></table></figure>
+<p>  剩下的就是在有1px边框的元素上，设置position，然后css中加入border-1px()，内部元素计算大小时不需要在*2了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.b-div</div><div class="line">   position: relative</div><div class="line">	border-1px(#fc9153)</div></pre></td></tr></table></figure>
+<h5 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h5><p>pointer-event的兼容性还是比较好的, 具体参看<a href="http://caniuse.com/#feat=pointer-events" target="_blank" rel="external">caniuse</a></p>
+<h5 id="该方法的弊端"><a href="#该方法的弊端" class="headerlink" title="该方法的弊端"></a>该方法的弊端</h5><ul>
+<li><p>采用rem布局时，计算出的div(下面称为b-div)和边框的div(下面称为1px-div)会出现小数，如果b-div设置了overflow:hidden，则在部分安卓机器下会出现右边或者下边边框线消失的问题。</p>
+<p>目前找到的解决方法是b-div不要设置overflow:hidden。</p>
+</li>
+<li><p>由于1px-div和b-div是两个独立的div，所以如果元素带圆角的话，需要同时设置1px-div和b-div的圆角，并且要一致。</p>
+</li>
+</ul>
+
+        
+      </div>
+    </div>
+    <a class="read-all-link" href="/2016/11/19/配合event-pointer实现1px边框/">阅读全部</a>
   
 
   
