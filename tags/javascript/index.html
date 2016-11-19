@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    标签: javascript
+  
+</title>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="NULL">
+<meta property="og:url" content="https://cuijing1031.github.io/tags/javascript/index.html">
+<meta property="og:site_name" content="NULL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NULL">
+
+
+  <link rel="alternative" href="/atom.xml" title="NULL" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">NULL</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">NULL</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">Candy.J</div>
+        
+      </div>
+      <div class="avatar">
+        
+          <a href="/about"><img src="/images/avatar.gif"></a>
+        
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">2</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/cuijing1031" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <h1>javascript</h1>
+
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/11/19/javascript中bind知多少/" >
+  javascript中bind知多少
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/11/19/javascript中bind知多少/"><span class="article-date">
+  2016-11-19
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>  我们经常将apply, call和bind放在一起来对比他们的区别和用法。提到这三个，很容易想到他们可以改变函数中this的指向。对于bind方法，我们最常见的使用方式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> otherFn = fn.bind(<span class="keyword">this</span>);</div></pre></td></tr></table></figure>
+<p>  其实，bind还有一个被我们忽略了的非常好用的特性——<em style="color: red; font-weight: bold">传参</em></p>
+<h4 id="bind参数"><a href="#bind参数" class="headerlink" title="bind参数"></a>bind参数</h4><blockquote>
+<p>当绑定函数被调用时，这些参数加上绑定函数本身的参数会按照顺序作为原函数运行时的参数。</p>
+</blockquote>
+<p>  来个栗子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fn1 = <span class="function"><span class="keyword">function</span> (<span class="params">arg1, arg2, arg3</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(arg1);</div><div class="line">	<span class="built_in">console</span>.log(arg2);</div><div class="line">	<span class="built_in">console</span>.log(arg3);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> fn2 = fn1.bind(<span class="literal">null</span>, <span class="string">'first'</span>);</div><div class="line">fn2(<span class="string">'second'</span>, <span class="string">'third'</span>); <span class="comment">// 输出为: first second third</span></div></pre></td></tr></table></figure>
+<h4 id="为什么说好用"><a href="#为什么说好用" class="headerlink" title="为什么说好用"></a>为什么说好用</h4><p>  bind的参数可以和绑定函数本身的参数进行拼接，利用这一特性可以实现一些自定义的包装。看下面的使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 原始函数</span></div><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">customizer, a, b</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> customResult = customizer(a, b); <span class="comment">// 使用自定义方式对a，b,key进行处理</span></div><div class="line">	<span class="keyword">if</span> (!customResult) &#123;</div><div class="line">	  <span class="comment">// 默认的处理</span></div><div class="line">	  customResult = a + b</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> customResult;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> decoratoredFn = fn.bind(<span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">	<span class="comment">// 自定义的处理方法</span></div><div class="line">	<span class="keyword">return</span> a*<span class="number">2</span> + b;</div><div class="line">&#125;);</div><div class="line">decoratoredFn(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 结果为 4;</span></div></pre></td></tr></table></figure>
+<p>在原始的函数中，自定义的函数仅仅是一个参数，而具体的实现是在bind的时候确定的。这样，fn可以认为是一个<em style="color:red; font-weight:bold">通用的抽象的模板</em>。额，有点拗口，让我们想象一下map方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>];</div><div class="line"><span class="keyword">var</span> roots = numbers.map(<span class="built_in">Math</span>.sqrt);</div><div class="line"><span class="comment">// roots is now [1, 2, 3]</span></div><div class="line"><span class="comment">// numbers is still [1, 4, 9]</span></div></pre></td></tr></table></figure>
+<p>map方式实现了一个抽象的模板，将一个array转化为另一个array，然后输出。中间具体转化成什么map是不关心的，留给我们来自定义。用bind来搞一搞array的map呢？通用的逻辑：挨个对array中的每一个进行处理得到一个值，这些值组成一个新的array，然后最终输出。具体每一个怎么处理，留给bind了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 原始函数</span></div><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">customizer, a</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> resultArray = [];</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>, len=a.length; i &lt; len; i++) &#123;</div><div class="line">		resultArray.push(customizer(a[i]));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> resultArray;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> customizerFn = fn.bind(<span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">	<span class="comment">// 自定义的处理方法</span></div><div class="line">	<span class="keyword">return</span> item*<span class="number">2</span>;</div><div class="line">&#125;);</div><div class="line">decoratoredFn([<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">// 结果为 [2, 4];</span></div></pre></td></tr></table></figure>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 NULL - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>
