@@ -76,22 +76,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">類別</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工程化/">工程化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/语言/">语言</a><span class="category-list-count">1</span></li></ul>
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工程化/">工程化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/语言/">语言</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">標籤</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li></ul>
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">彙整</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">3</span></li></ul>
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">4</span></li></ul>
               </li>
             
           
@@ -132,6 +132,122 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/11/27/cookie从哪来到哪去/" >
+  cookie从哪来到哪去
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/11/27/cookie从哪来到哪去/"><span class="article-date">
+  2016-11-27
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/web/">web</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h4 id="从哪来"><a href="#从哪来" class="headerlink" title="从哪来"></a>从哪来</h4><p>浏览器添加cookie的时机：</p>
+<ul>
+<li><p>有客户端来设置：通过javascript的api——document.cookie来操作</p>
+<h5 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h5>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.cookie = <span class="string">'name=value; maxAge=3000; path=/; domain=xx.com; secure'</span></div></pre></td></tr></table></figure>
+<p>  cookie的名和值中不能出现分号、逗号、等号和空格，每一个key之间通过分号和空格来分割。</p>
+<h5 id="设置多个cookie"><a href="#设置多个cookie" class="headerlink" title="设置多个cookie"></a>设置多个cookie</h5><p>  通过document.cookie的方式来设置cookie每次只能设置一个cookie。如果我们写多个会有什么效果呢？</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.cookie = <span class="string">'cookie1=value1; cookie2=value2'</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>放在console中运行一下，会发现，只有第一个cookie1设置成功，而cookie2被无视了。所以要设置多个cookie，最简单的方式就是多次调用document.cookie。
+</code></pre><ul>
+<li><p>由服务端来设置：http的响应头中。</p>
+<p>打开浏览器的控制台，在network下我们可以看到浏览器发出的所有请求。这些请求的返回头中，有些会发现一个Set-Cookie的字段。<br><img src="/images/Set-Cookie.png" style="width:400px;margin:0 auto;display:block;" alt="set-cookie"><br>服务器通过这个字段来告诉浏览器，它需要设置一个cookie，然后浏览器检查一下要设置的内容是否满足浏览器定下的cookie的“条条框框”，如果满足那么一个cookie就诞生了。这里提到了“条条框框”我们稍后做解答。</p>
+<p>在上图中，响应头里set-cookie字段可以有多个，每一个对应一个要设置的cookie，且只能对应一个。</p>
+</li>
+</ul>
+<h4 id="到哪去"><a href="#到哪去" class="headerlink" title="到哪去"></a>到哪去</h4><ul>
+<li><p>客户端主动获取</p>
+<p>和客户端设置相同，获取的时候也是通过document.cookie来读取：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cookies = <span class="built_in">document</span>.cookie</div></pre></td></tr></table></figure>
+<p>  读取到的cookie为一串字符串，每个cookie之间通过分号来分割。</p>
+</li>
+<li><p>随着请求发送</p>
+<p>浏览器发送请求时，在请求的头中会自动将“符合条件”的cookie带上。<br>既然是请求头中携带的，那么我们通过ajax发送请求的时候，能否顺便设置一下cookie呢？简单的实验一下即可知晓：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">xhr.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</div><div class="line">xhr.withCredentials = <span class="literal">true</span>;</div><div class="line">xhr.setRequestHeader(<span class="string">'Cookie'</span>, <span class="string">"key=value"</span>);</div><div class="line">xhr.send(<span class="literal">null</span>);</div></pre></td></tr></table></figure>
+<p>然后我们看看实际上浏览器发送出去的请求：<br><img src="/images/ajax-setcookie.jpeg" style="width:400px;margin:0 auto;display:block;" alt=""><br>我们设置的cookie并没有生效，并且chrome浏览器下我们会看到一行报错</p>
+<blockquote>
+<p>Refused to set unsafe header “Cookie”</p>
+</blockquote>
+<p>所以说，因为浏览器的安全限制，我们不能自己随便设置请求头中的cookie。</p>
+</li>
+</ul>
+<h4 id="cookies条条框框"><a href="#cookies条条框框" class="headerlink" title="cookies条条框框"></a>cookies条条框框</h4><p>  一个cookie除了value外，还有domain、path、expires/max-age、httpOnly、secure、sameSite这些属性。设置cookie的时候，可以对这些相关属性进行设置，当然也可以不进行设置，这时浏览器会自动给这些属性一个默认值。cookie的条条框框就和这些属性脱不了干系。</p>
+<ul>
+<li><p>domain</p>
+<p>domain限制了cookie的使用范围：只能在domain值的范围中才能访问到该cookie.</p>
+<p>同时domain值的设置也有严格的要求。</p>
+<ul>
+<li><p>自身</p>
+<p>  毫无疑问domain的值可以设置为本身。</p>
+</li>
+<li><p>向下：所有子域名</p>
+<p>如果我们当前页面的域名是 sub.test.com, 那么 domain 可以设置为.sub.test.com。允许所有sub.test.com的子域名访问，如xx.sub.test.com、xx.xx.sub.test.com。</p>
+</li>
+<li><p>向上：父级域名,直到Top-Level的下一级</p>
+<p>如果我们当前页面的域名是sub.test.com, 那么domain可以设置为test.com。但是不能设置为.com。因为.com属于<a href="https://en.wikipedia.org/wiki/Top-level_domain" target="_blank" rel="external">Top-Level Domain</a>。</p>
+</li>
+</ul>
+</li>
+<li><p>path</p>
+<p>domain+path 共同限制了可访问该cookie的URL。如果某个cookie的path=’/home’，那么只有“domain/home”下的所有url可以访问该cookie。</p>
+</li>
+<li><p>expires/max-age</p>
+<p>这两个值决定了cookie能活多久。如果不进行设置，那么浏览器会默认将cookie的有效期设置为 session，当页面关闭后cookie便随之被清理了。如果希望cookie在页面关闭后，仍然能保存一段时间，那么就需要为cookie设置一个过期时间，在过期时间内浏览器都会为我们保留该cookie.</p>
+<blockquote>
+<p>expires 是 http/1.0协议中的选项，在新的http/1.1协议中expires已经由 max-age 选项代替。expires必须是 GMT 格式的时间。</p>
+</blockquote>
+<p>max-age的单位为秒，cookie失效时刻 = 创建时刻 + max-age</p>
+</li>
+<li><p>httpOnly</p>
+<p>如果一个cookie被标记为httpOnly, 那么前文所提到的通过document.cookie的方式就无法获取到该cookie。同样的，我们通过js来设置cookie的，也无法被标记为httpOnly。也就说以下写法是不会生效的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.cookie=<span class="string">"cookie1=value1; HttpOnly"</span></div></pre></td></tr></table></figure>
+<p>这个值只能通过请求的响应头来设置。默认情况下，cookie不会带httpOnly选项。</p>
+</li>
+<li><p>Secure</p>
+<p>对于被标记为Secure的cookie,只有当请求是HTTPS或者其他安全协议时，该cookie 才能被访问到。同样的，也只有在HTTPS或者其他安全协议时，我们也才能通过js设置secure的cookie。</p>
+</li>
+<li><p>sameSite</p>
+<p>这个值这是谷歌开发的一种安全机制，用来定义cookie如何跨域发送，其目的是尝试阻止CSRF。chrome51版本已经支持。关于各大浏览器的支持情况，参考<a href="https://www.chromestatus.com/feature/4672634709082112" target="_blank" rel="external">chrome官网</a>。关于这个特性，这里不多做介绍了，感兴趣的可参看<a href="https://www.sjoerdlangkemper.nl/2016/04/14/preventing-csrf-with-samesite-cookie-attribute/" target="_blank" rel="external">preventing-csrf-with-samesite-cookie-attribute</a>和<a href="https://chloe.re/2016/04/13/goodbye-csrf-samesite-to-the-rescue/" target="_blank" rel="external">goodbye-csrf-samesite-to-the-rescue</a></p>
+<p>最后，这些所有的属性值，一起决定了一件事——这个cookie那个URL可以能用。</p>
+</li>
+</ul>
+<p>参考文献：<br><a href="https://developers.livechatinc.com/blog/setting-cookies-to-subdomains-in-javascript/" target="_blank" rel="external">https://developers.livechatinc.com/blog/setting-cookies-to-subdomains-in-javascript/</a><br><a href="https://www.sjoerdlangkemper.nl/2016/04/14/preventing-csrf-with-samesite-cookie-attribute/" target="_blank" rel="external">https://www.sjoerdlangkemper.nl/2016/04/14/preventing-csrf-with-samesite-cookie-attribute/</a></p>
+
+        
+      </div>
+    </div>
+    <a class="read-all-link" href="/2016/11/27/cookie从哪来到哪去/">阅读全部</a>
+  
+    </div>
+  
 
   
   
@@ -348,7 +464,7 @@
 
           <div class="main-footer">
   
-    © 2016 NULL - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+    本文为原创，对知识的理解有疏漏或者错误的地方，欢迎指正。如有问题，欢迎开issue。# the copyright text in the footer, could be richtext
   
 </div>
 
