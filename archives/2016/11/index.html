@@ -8,7 +8,7 @@
 
 <title>
   
-    彙整: 2016/11
+    Archive: 2016/11
   
 </title>
 
@@ -76,22 +76,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">類別</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工程化/">工程化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/语言/">语言</a><span class="category-list-count">1</span></li></ul>
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工程化/">工程化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/语言/">语言</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">標籤</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li></ul>
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flow/">flow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">彙整</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">4</span></li></ul>
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">5</span></li></ul>
               </li>
             
           
@@ -262,66 +262,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/11/19/javascript中bind知多少/" >
-  javascript中bind知多少
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/11/19/javascript中bind知多少/"><span class="article-date">
-  2016-11-19
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/语言/">语言</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>  我们经常将apply, call和bind放在一起来对比他们的区别和用法。提到这三个，很容易想到他们可以改变函数中this的指向。对于bind方法，我们最常见的使用方式如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> otherFn = fn.bind(<span class="keyword">this</span>);</div></pre></td></tr></table></figure>
-<p>  其实，bind还有一个被我们忽略了的非常好用的特性——<em style="color: red; font-weight: bold">传参</em></p>
-<h4 id="bind参数"><a href="#bind参数" class="headerlink" title="bind参数"></a>bind参数</h4><blockquote>
-<p>当绑定函数被调用时，这些参数加上绑定函数本身的参数会按照顺序作为原函数运行时的参数。</p>
-</blockquote>
-<p>  来个栗子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fn1 = <span class="function"><span class="keyword">function</span> (<span class="params">arg1, arg2, arg3</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(arg1);</div><div class="line">	<span class="built_in">console</span>.log(arg2);</div><div class="line">	<span class="built_in">console</span>.log(arg3);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> fn2 = fn1.bind(<span class="literal">null</span>, <span class="string">'first'</span>);</div><div class="line">fn2(<span class="string">'second'</span>, <span class="string">'third'</span>); <span class="comment">// 输出为: first second third</span></div></pre></td></tr></table></figure>
-<h4 id="为什么说好用"><a href="#为什么说好用" class="headerlink" title="为什么说好用"></a>为什么说好用</h4><p>  bind的参数可以和绑定函数本身的参数进行拼接，利用这一特性可以实现一些自定义的包装。看下面的使用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 原始函数</span></div><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">customizer, a, b</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> customResult = customizer(a, b); <span class="comment">// 使用自定义方式对a，b,key进行处理</span></div><div class="line">	<span class="keyword">if</span> (!customResult) &#123;</div><div class="line">	  <span class="comment">// 默认的处理</span></div><div class="line">	  customResult = a + b</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> customResult;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> decoratoredFn = fn.bind(<span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">	<span class="comment">// 自定义的处理方法</span></div><div class="line">	<span class="keyword">return</span> a*<span class="number">2</span> + b;</div><div class="line">&#125;);</div><div class="line">decoratoredFn(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 结果为 4;</span></div></pre></td></tr></table></figure>
-<p>在原始的函数中，自定义的函数仅仅是一个参数，而具体的实现是在bind的时候确定的。这样，fn可以认为是一个<em style="color:red; font-weight:bold">通用的抽象的模板</em>。额，有点拗口，让我们想象一下map方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>];</div><div class="line"><span class="keyword">var</span> roots = numbers.map(<span class="built_in">Math</span>.sqrt);</div><div class="line"><span class="comment">// roots is now [1, 2, 3]</span></div><div class="line"><span class="comment">// numbers is still [1, 4, 9]</span></div></pre></td></tr></table></figure>
-<p>map方式实现了一个抽象的模板，将一个array转化为另一个array，然后输出。中间具体转化成什么map是不关心的，留给我们来自定义。用bind来搞一搞array的map呢？通用的逻辑：挨个对array中的每一个进行处理得到一个值，这些值组成一个新的array，然后最终输出。具体每一个怎么处理，留给bind了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 原始函数</span></div><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">customizer, a</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> resultArray = [];</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>, len=a.length; i &lt; len; i++) &#123;</div><div class="line">		resultArray.push(customizer(a[i]));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> resultArray;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> customizerFn = fn.bind(<span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">	<span class="comment">// 自定义的处理方法</span></div><div class="line">	<span class="keyword">return</span> item*<span class="number">2</span>;</div><div class="line">&#125;);</div><div class="line">decoratoredFn([<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">// 结果为 [2, 4];</span></div></pre></td></tr></table></figure>
-<h4 id="贴合点实际的栗子——单位转换"><a href="#贴合点实际的栗子——单位转换" class="headerlink" title="贴合点实际的栗子——单位转换"></a>贴合点实际的栗子——单位转换</h4><p>对于一维的单位转化，我们可以容易的得出一个通用的公式: 原单位*比例 + 起始偏差值 用代码描述一下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">converter</span>(<span class="params">toUnit, factor, offset, input</span>) </span>&#123;</div><div class="line">    offset = offset || <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> [((offset+input)*factor).toFixed(<span class="number">2</span>), toUnit].join(<span class="string">" "</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>基于converter函数，借用bind的可以包装出各种单位转化的方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> milesToKm = converter.bind(<span class="literal">undefined</span>, <span class="string">'km'</span>, <span class="number">1.60936</span>, <span class="number">0</span>);</div><div class="line"><span class="keyword">var</span> poundsToKg = converter.bind(<span class="literal">undefined</span>, <span class="string">'kg'</span>, <span class="number">0.45460</span>, <span class="number">0</span>);</div><div class="line"><span class="keyword">var</span> farenheitToCelsius = converter.bind(<span class="literal">undefined</span>, <span class="string">'degrees C'</span>,<span class="number">0.5556</span>, <span class="number">-32</span>);</div><div class="line">milesToKm(<span class="number">10</span>);            <span class="comment">// returns "16.09 km"</span></div><div class="line">poundsToKg(<span class="number">2.5</span>);          <span class="comment">// returns "1.14 kg"</span></div><div class="line">farenheitToCelsius(<span class="number">98</span>);   <span class="comment">// returns "36.67 degrees C"</span></div></pre></td></tr></table></figure>
-<p><a href="http://kishorelive.com/2012/02/06/currying-in-javascript-using-bind/" target="_blank" rel="external">该栗子来源戳这里</a></p>
-
-        
-      </div>
-    </div>
-    <a class="read-all-link" href="/2016/11/19/javascript中bind知多少/">阅读全部</a>
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2016/11/19/配合event-pointer实现1px边框/" >
   配合pointer-events实现1px边框
 </a>
@@ -382,6 +322,66 @@
       </div>
     </div>
     <a class="read-all-link" href="/2016/11/19/配合event-pointer实现1px边框/">阅读全部</a>
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/11/19/javascript中bind知多少/" >
+  javascript中bind知多少
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/11/19/javascript中bind知多少/"><span class="article-date">
+  2016-11-19
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/语言/">语言</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>  我们经常将apply, call和bind放在一起来对比他们的区别和用法。提到这三个，很容易想到他们可以改变函数中this的指向。对于bind方法，我们最常见的使用方式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> otherFn = fn.bind(<span class="keyword">this</span>);</div></pre></td></tr></table></figure>
+<p>  其实，bind还有一个被我们忽略了的非常好用的特性——<em style="color: red; font-weight: bold">传参</em></p>
+<h4 id="bind参数"><a href="#bind参数" class="headerlink" title="bind参数"></a>bind参数</h4><blockquote>
+<p>当绑定函数被调用时，这些参数加上绑定函数本身的参数会按照顺序作为原函数运行时的参数。</p>
+</blockquote>
+<p>  来个栗子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fn1 = <span class="function"><span class="keyword">function</span> (<span class="params">arg1, arg2, arg3</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(arg1);</div><div class="line">	<span class="built_in">console</span>.log(arg2);</div><div class="line">	<span class="built_in">console</span>.log(arg3);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> fn2 = fn1.bind(<span class="literal">null</span>, <span class="string">'first'</span>);</div><div class="line">fn2(<span class="string">'second'</span>, <span class="string">'third'</span>); <span class="comment">// 输出为: first second third</span></div></pre></td></tr></table></figure>
+<h4 id="为什么说好用"><a href="#为什么说好用" class="headerlink" title="为什么说好用"></a>为什么说好用</h4><p>  bind的参数可以和绑定函数本身的参数进行拼接，利用这一特性可以实现一些自定义的包装。看下面的使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 原始函数</span></div><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">customizer, a, b</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> customResult = customizer(a, b); <span class="comment">// 使用自定义方式对a，b,key进行处理</span></div><div class="line">	<span class="keyword">if</span> (!customResult) &#123;</div><div class="line">	  <span class="comment">// 默认的处理</span></div><div class="line">	  customResult = a + b</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> customResult;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> decoratoredFn = fn.bind(<span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">	<span class="comment">// 自定义的处理方法</span></div><div class="line">	<span class="keyword">return</span> a*<span class="number">2</span> + b;</div><div class="line">&#125;);</div><div class="line">decoratoredFn(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 结果为 4;</span></div></pre></td></tr></table></figure>
+<p>在原始的函数中，自定义的函数仅仅是一个参数，而具体的实现是在bind的时候确定的。这样，fn可以认为是一个<em style="color:red; font-weight:bold">通用的抽象的模板</em>。额，有点拗口，让我们想象一下map方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>];</div><div class="line"><span class="keyword">var</span> roots = numbers.map(<span class="built_in">Math</span>.sqrt);</div><div class="line"><span class="comment">// roots is now [1, 2, 3]</span></div><div class="line"><span class="comment">// numbers is still [1, 4, 9]</span></div></pre></td></tr></table></figure>
+<p>map方式实现了一个抽象的模板，将一个array转化为另一个array，然后输出。中间具体转化成什么map是不关心的，留给我们来自定义。用bind来搞一搞array的map呢？通用的逻辑：挨个对array中的每一个进行处理得到一个值，这些值组成一个新的array，然后最终输出。具体每一个怎么处理，留给bind了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 原始函数</span></div><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">customizer, a</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> resultArray = [];</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>, len=a.length; i &lt; len; i++) &#123;</div><div class="line">		resultArray.push(customizer(a[i]));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> resultArray;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> customizerFn = fn.bind(<span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">	<span class="comment">// 自定义的处理方法</span></div><div class="line">	<span class="keyword">return</span> item*<span class="number">2</span>;</div><div class="line">&#125;);</div><div class="line">decoratoredFn([<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">// 结果为 [2, 4];</span></div></pre></td></tr></table></figure>
+<h4 id="贴合点实际的栗子——单位转换"><a href="#贴合点实际的栗子——单位转换" class="headerlink" title="贴合点实际的栗子——单位转换"></a>贴合点实际的栗子——单位转换</h4><p>对于一维的单位转化，我们可以容易的得出一个通用的公式: 原单位*比例 + 起始偏差值 用代码描述一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">converter</span>(<span class="params">toUnit, factor, offset, input</span>) </span>&#123;</div><div class="line">    offset = offset || <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> [((offset+input)*factor).toFixed(<span class="number">2</span>), toUnit].join(<span class="string">" "</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>基于converter函数，借用bind的可以包装出各种单位转化的方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> milesToKm = converter.bind(<span class="literal">undefined</span>, <span class="string">'km'</span>, <span class="number">1.60936</span>, <span class="number">0</span>);</div><div class="line"><span class="keyword">var</span> poundsToKg = converter.bind(<span class="literal">undefined</span>, <span class="string">'kg'</span>, <span class="number">0.45460</span>, <span class="number">0</span>);</div><div class="line"><span class="keyword">var</span> farenheitToCelsius = converter.bind(<span class="literal">undefined</span>, <span class="string">'degrees C'</span>,<span class="number">0.5556</span>, <span class="number">-32</span>);</div><div class="line">milesToKm(<span class="number">10</span>);            <span class="comment">// returns "16.09 km"</span></div><div class="line">poundsToKg(<span class="number">2.5</span>);          <span class="comment">// returns "1.14 kg"</span></div><div class="line">farenheitToCelsius(<span class="number">98</span>);   <span class="comment">// returns "36.67 degrees C"</span></div></pre></td></tr></table></figure>
+<p><a href="http://kishorelive.com/2012/02/06/currying-in-javascript-using-bind/" target="_blank" rel="external">该栗子来源戳这里</a></p>
+
+        
+      </div>
+    </div>
+    <a class="read-all-link" href="/2016/11/19/javascript中bind知多少/">阅读全部</a>
   
 
   

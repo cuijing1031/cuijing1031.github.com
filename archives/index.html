@@ -8,7 +8,7 @@
 
 <title>
   
-    彙整
+    Archive
   
 </title>
 
@@ -76,22 +76,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">類別</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工程化/">工程化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/语言/">语言</a><span class="category-list-count">1</span></li></ul>
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工程化/">工程化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/语言/">语言</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">標籤</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li></ul>
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flow/">flow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">彙整</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">4</span></li></ul>
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">5</span></li></ul>
               </li>
             
           
@@ -143,6 +143,216 @@
           <h1><a href="/archives/2016" class="archive-year">2016</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/12/18/flow的使用/" >
+  flow的使用
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/12/18/flow的使用/"><span class="article-date">
+  2016-12-18
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/工程化/">工程化</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flow/">flow</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>facebook 推出的 js 静态类型检查工具。</p>
+<blockquote>
+<p>flow可以在代码运行前对类型错误进行检查，包括：</p>
+<ul>
+<li>类型错误</li>
+<li>对null的引用</li>
+<li>以及可怕的 “undefined is not a function”<br>flow 允许我们给变量添加类型</li>
+</ul>
+</blockquote>
+<h4 id="flow-的安装和使用"><a href="#flow-的安装和使用" class="headerlink" title="flow 的安装和使用"></a>flow 的安装和使用</h4><p>安装：<br>由于 flow 是用 OCaml 语言写的，npm 上只有对应的二进制包。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev flow-bin</div></pre></td></tr></table></figure>
+<p>1.基本使用</p>
+<p>安装完成后我们在要执行静态检查的文件跟目录下执行一下 <strong>flow init</strong> ，之后会发现多处一个<strong>.flowconfig</strong>文件，<strong>这个文件告诉 Flow 在这个目录下开始检测</strong>。此外 .flowconfig 文件可以进行一下更为高级的配置，比如仅包含一些目录、忽略一下目录等等（更深入的了解，<a href="https://flowtype.org/docs/advanced-configuration.html#_" target="_blank" rel="external">请戳官网</a>）。 </p>
+<p>对于需要使用 flow 进行类型检查的 js 文件，在开头加入 @flow 的注释</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* @flow */</span> 只要带有这个注释，都会进行类型检测</div><div class="line"></div><div class="line">或者</div><div class="line"></div><div class="line"><span class="comment">/* @flow weak */</span> 只对有加类型注解的变量进行类型检测</div></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* @flow */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiple10</span> (<span class="params">num</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> num * <span class="number">10</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">multiple10(<span class="string">'20'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLength</span> (<span class="params">str</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> str.length</div><div class="line">&#125;</div><div class="line">getLength(<span class="string">'3'</span>)</div><div class="line">getLength([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</div></pre></td></tr></table></figure>
+<p>接下来执行 flow check 看一下结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">3: <span class="built_in">return</span> num * 10</div><div class="line">          ^^^ string. The operand of an arithmetic operation must be a number.</div><div class="line"></div><div class="line">Found 1 error</div></pre></td></tr></table></figure>
+<p>multiple10 函数中的类型转换被 flow 标记出。</p>
+<p>2.类型注解</p>
+<p>注意上面例子中 flow 的报错，只有 multiple10 中静态类型错误被检测中。对于 getLength 函数中参数 str 的类型是什么呢？ 从函数本身来分析，只要包含 length 属性就都是合法的。 对于这种情况则可以为其添加“<a href="https://zhenyong.github.io/flowtype/docs/type-annotations.html#_" target="_blank" rel="external">类型注解</a>”，来明确的告诉 flow 这个值的类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLength</span> (<span class="params">str: string</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> str.length</div><div class="line">&#125;</div><div class="line">getLength(<span class="string">'3'</span>)</div><div class="line">getLength([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</div></pre></td></tr></table></figure>
+<p>再来运行一下 flow check , 这时结果会提示我们[1,2,3]这个参数类型不对。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">12: getLength([1,2,3])</div><div class="line">              ^^^^^^^ array literal. This type is incompatible with the expected param type of</div><div class="line"> 8: function getLength (str: string) &#123;</div><div class="line">                             ^^^^^^ string</div></pre></td></tr></table></figure>
+<p>3.自定义类型</p>
+<p>很多时候，除了 number 、 string 这些基础类型外，我们还会有一些自定义的类型，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var someData = &#123;</div><div class="line">	id: 1,</div><div class="line">	text: &apos;选项1&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这时候可以在一个单独的文件中将 someData 申明了一个自定义类型。方式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* /decls/data.js.flow */</span></div><div class="line">declare type SomeData = &#123;</div><div class="line">  <span class="attr">id</span>: number;</div><div class="line">  text: strin;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后在 .flowconfig 文件中引入该申明文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[libs]</div><div class="line">decls/</div></pre></td></tr></table></figure>
+<h4 id="flow-server"><a href="#flow-server" class="headerlink" title="flow server"></a>flow server</h4><p>在大型项目中，如果每修改完代码，就执行以下 flow check ，然后等待看结果，显然会被逼疯的。flow 为我们提供了一个 flow server ，支持在后台运行，并且只监测有修改的文件。方法很简单，只有一个命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$&gt; flow <span class="comment"># 开启一个后台服务，输出首次检测结果</span></div><div class="line">$&gt; flow <span class="comment"># 第二次使用flow，连接正在运行的后台服务，输出检测结果</span></div><div class="line">$&gt; flow stop <span class="comment"># 关闭flow server</span></div></pre></td></tr></table></figure>
+<h4 id="babel-flow"><a href="#babel-flow" class="headerlink" title="babel+flow"></a>babel+flow</h4><p>由于 flow 中类型注解的语法不属于 javascript 规范中的内容。所以在最终的代码中，我们需要移除flow的内容。flow 提供了 flow-remove-types 和 babel 插件两种方式，推荐使用 babel 插件来完成这项工作。</p>
+<ul>
+<li><p>flow-remove-types<br>这种方法比较简单粗暴: 安装 flow-remove-types，然后执行命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$&gt; npm install -g flow-remove-types</div><div class="line">$&gt; flow-remove-types src/ --out-dir build/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>babel插件<br>安装 babel 插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&gt; npm install babel-plugin-transform-flow-strip-types</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>  babel 的 plugin 中加入该插件</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  &#123;</div><div class="line">  <span class="string">"presets"</span>: [<span class="string">"es2015"</span>, <span class="string">"stage-2"</span>],</div><div class="line">  <span class="string">"plugins"</span>: [<span class="string">"transform-runtime"</span>, <span class="string">"transform-flow-strip-types"</span>],</div><div class="line">  <span class="string">"comments"</span>: <span class="literal">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：在 babel6 的 babel-preset-react 的插件中已经内置了 transform-flow-strip-types（<a href="https://flowtype.org/docs/syntax.html" target="_blank" rel="external">https://flowtype.org/docs/syntax.html</a>），如果使用了 babel-preset-react 那么无需再引入transform-flow-strip-types</p>
+</blockquote>
+<h4 id="eslint"><a href="#eslint" class="headerlink" title="eslint"></a>eslint</h4><p>eslint-plugin-flowtype 插件，可以让我们在 eslint 代码检查中加入 flow 的书写规范化检查。使用方式也很简单：</p>
+<ol>
+<li><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&gt; npm install eslint-plugin-flowtype</div></pre></td></tr></table></figure>
+</li>
+<li><p>在 .eslintrc.js 中设置 parser 为 <strong>babel-eslint</strong></p>
+</li>
+<li>plugin 中加入 <strong>flowtype</strong></li>
+<li>eslint-plugin-flowtype 插件中默认提供了一份基于优秀实践总结出的 flow type 书写<a href="https://github.com/gajus/eslint-plugin-flowtype/blob/master/src/configs/recommended.json" target="_blank" rel="external">规范配置</a>，在 .eslintrc 文件的 extend  中加入 “plugin:flowtype/recommended” 即可直接使用。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"extends"</span>: [</div><div class="line">    <span class="string">"standard"</span>,</div><div class="line">    <span class="string">"plugin:flowtype/recommended"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"plugins"</span>: [</div><div class="line">    <span class="string">"flowtype"</span></div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>完成后我们来看看效果。下面的代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLength</span> (<span class="params">str:string</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> str.length</div><div class="line">&#125;</div><div class="line">getLength(<span class="string">'3'</span>)</div></pre></td></tr></table></figure>
+<p>eslint 检查结果会抛出一个错误：类型注解的冒号后面丢失了空格。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  ✘  https://google.com/<span class="comment">#q=flowtype%2Fspace-after-type-colon  There must be a space after "str" parameter type annotation colon</span></div><div class="line">  /Users/didi/xiaoju/src/static-h5-src/750/driver/feedback/src/main.js:2:21</div><div class="line">  <span class="keyword">function</span> getLength (str:string) &#123;</div><div class="line">                       ^</div><div class="line">✘ 1 problem (1 error, 0 warnings)</div></pre></td></tr></table></figure>
+<p>因为推荐的规范中：类型注解冒号后需要一个空格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&quot;rules&quot;: &#123;</div><div class="line">  ...</div><div class="line">&quot;flowtype/space-after-type-colon&quot;: [</div><div class="line">  2,</div><div class="line">  &quot;always&quot;</div><div class="line">],</div><div class="line">...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>flow type 规范配置如：函数返回类型是否必须、类型注解冒号前后的空格、自定义的type 的名称的命名方式等等，官方给出了很详细<a href="https://github.com/gajus/eslint-plugin-flowtype" target="_blank" rel="external">说明和例子</a>。注：针对flow的的规范规则配置前添加“flowtype/”</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">配置名称</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">boolean-style</td>
+<td style="text-align:left">类型注解中布尔值使用boolean还是bool</td>
+</tr>
+<tr>
+<td style="text-align:left">define-flow-type</td>
+<td style="text-align:left">将类型注解标记为已定义，no-undef的检查中不会出现报错</td>
+</tr>
+<tr>
+<td style="text-align:left">delimiter-dangle</td>
+<td style="text-align:left">Object和Tuple类型定义中分隔符使用规范</td>
+</tr>
+<tr>
+<td style="text-align:left">generic-spacing</td>
+<td style="text-align:left">泛型对象的尖括号中类型前后的空格规范</td>
+</tr>
+<tr>
+<td style="text-align:left">space-before-generic-bracket</td>
+<td style="text-align:left">泛型对象的尖括号前的空格规范</td>
+</tr>
+<tr>
+<td style="text-align:left">no-dupe-keys</td>
+<td style="text-align:left">object类型的定义中是否有重复的属性值</td>
+</tr>
+<tr>
+<td style="text-align:left">no-primitive-constructor-types</td>
+<td style="text-align:left">禁止使用原生的类型</td>
+</tr>
+<tr>
+<td style="text-align:left">no-weak-types</td>
+<td style="text-align:left">是否可以使用弱类型any、Object、Function</td>
+</tr>
+<tr>
+<td style="text-align:left">object-type-delimiter</td>
+<td style="text-align:left">Object类型定义中，属性之前分割符为分号/逗号(注：该属性已被废弃，需要使用分号来分割)</td>
+</tr>
+<tr>
+<td style="text-align:left">require-parameter-type</td>
+<td style="text-align:left">函数的参数是否需要类型注解</td>
+</tr>
+<tr>
+<td style="text-align:left">require-return-type</td>
+<td style="text-align:left">函数返回值是否需要类型注解</td>
+</tr>
+<tr>
+<td style="text-align:left">require-valid-file-annotation</td>
+<td style="text-align:left">文件开头@flow的写法</td>
+</tr>
+<tr>
+<td style="text-align:left">require-variable-type</td>
+<td style="text-align:left">什么样的变量是需要类型注解</td>
+</tr>
+<tr>
+<td style="text-align:left">semi</td>
+<td style="text-align:left">使用type自定义类型语句结尾是否需要分号结尾</td>
+</tr>
+<tr>
+<td style="text-align:left">sort-keys</td>
+<td style="text-align:left">Object类型定义中属性排列顺序</td>
+</tr>
+<tr>
+<td style="text-align:left">space-after-type-colon</td>
+<td style="text-align:left">类型注解分号后的空格规范</td>
+</tr>
+<tr>
+<td style="text-align:left">space-before-type-colon</td>
+<td style="text-align:left">类型注解分号前的空格规范</td>
+</tr>
+<tr>
+<td style="text-align:left">type-id-match</td>
+<td style="text-align:left">使用type自定义类型的名称规范</td>
+</tr>
+<tr>
+<td style="text-align:left">union-intersection-spacing</td>
+<td style="text-align:left">union类型、intersection类型连接符号\</td>
+<td>、&amp;之间的空格规范</td>
+</tr>
+<tr>
+<td style="text-align:left">use-flow-type</td>
+<td style="text-align:left">将通过declare定义的自定义类型标记为已经被使用过，no-unused-vars的检查中不会出现报错</td>
+</tr>
+</tbody>
+</table>
+<p>#####名词说明</p>
+<p>文中一些中文词直接从英文文档中翻译过来，可能有不准确的地方，这里给出原文，避免歧义。</p>
+<ul>
+<li>类型注解：原文为 type annotations ,标记变量的类型</li>
+<li><p>自定义类型：原文为 type aliases, 类似C语言中的typedef，可以为已有类型定义一个新的名称，或将一个复杂类型进行封装，如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> type a = <span class="built_in">Array</span>&lt;<span class="built_in">String</span>&gt;</div><div class="line"> type Person = &#123;</div><div class="line">	  <span class="attr">name</span>: string,</div><div class="line">	  <span class="attr">age</span>: number</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>#####相关链接<br>  flow 官网(关于 flow 的各种用法官网给出了详细的例子)：<a href="https://flowtype.org/" target="_blank" rel="external">https://flowtype.org/</a> </p>
+<p>  flow 简短教程：<a href="https://www.youtube.com/watch?v=xWMuAUbXcdQ" target="_blank" rel="external">https://www.youtube.com/watch?v=xWMuAUbXcdQ</a>  </p>
+
+        
+      </div>
+    </div>
+    <a class="read-all-link" href="/2016/12/18/flow的使用/">阅读全部</a>
+  
+
+  
+  
     
   
 
@@ -262,66 +472,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/11/19/javascript中bind知多少/" >
-  javascript中bind知多少
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/11/19/javascript中bind知多少/"><span class="article-date">
-  2016-11-19
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/语言/">语言</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>  我们经常将apply, call和bind放在一起来对比他们的区别和用法。提到这三个，很容易想到他们可以改变函数中this的指向。对于bind方法，我们最常见的使用方式如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> otherFn = fn.bind(<span class="keyword">this</span>);</div></pre></td></tr></table></figure>
-<p>  其实，bind还有一个被我们忽略了的非常好用的特性——<em style="color: red; font-weight: bold">传参</em></p>
-<h4 id="bind参数"><a href="#bind参数" class="headerlink" title="bind参数"></a>bind参数</h4><blockquote>
-<p>当绑定函数被调用时，这些参数加上绑定函数本身的参数会按照顺序作为原函数运行时的参数。</p>
-</blockquote>
-<p>  来个栗子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fn1 = <span class="function"><span class="keyword">function</span> (<span class="params">arg1, arg2, arg3</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(arg1);</div><div class="line">	<span class="built_in">console</span>.log(arg2);</div><div class="line">	<span class="built_in">console</span>.log(arg3);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> fn2 = fn1.bind(<span class="literal">null</span>, <span class="string">'first'</span>);</div><div class="line">fn2(<span class="string">'second'</span>, <span class="string">'third'</span>); <span class="comment">// 输出为: first second third</span></div></pre></td></tr></table></figure>
-<h4 id="为什么说好用"><a href="#为什么说好用" class="headerlink" title="为什么说好用"></a>为什么说好用</h4><p>  bind的参数可以和绑定函数本身的参数进行拼接，利用这一特性可以实现一些自定义的包装。看下面的使用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 原始函数</span></div><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">customizer, a, b</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> customResult = customizer(a, b); <span class="comment">// 使用自定义方式对a，b,key进行处理</span></div><div class="line">	<span class="keyword">if</span> (!customResult) &#123;</div><div class="line">	  <span class="comment">// 默认的处理</span></div><div class="line">	  customResult = a + b</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> customResult;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> decoratoredFn = fn.bind(<span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">	<span class="comment">// 自定义的处理方法</span></div><div class="line">	<span class="keyword">return</span> a*<span class="number">2</span> + b;</div><div class="line">&#125;);</div><div class="line">decoratoredFn(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 结果为 4;</span></div></pre></td></tr></table></figure>
-<p>在原始的函数中，自定义的函数仅仅是一个参数，而具体的实现是在bind的时候确定的。这样，fn可以认为是一个<em style="color:red; font-weight:bold">通用的抽象的模板</em>。额，有点拗口，让我们想象一下map方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>];</div><div class="line"><span class="keyword">var</span> roots = numbers.map(<span class="built_in">Math</span>.sqrt);</div><div class="line"><span class="comment">// roots is now [1, 2, 3]</span></div><div class="line"><span class="comment">// numbers is still [1, 4, 9]</span></div></pre></td></tr></table></figure>
-<p>map方式实现了一个抽象的模板，将一个array转化为另一个array，然后输出。中间具体转化成什么map是不关心的，留给我们来自定义。用bind来搞一搞array的map呢？通用的逻辑：挨个对array中的每一个进行处理得到一个值，这些值组成一个新的array，然后最终输出。具体每一个怎么处理，留给bind了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 原始函数</span></div><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">customizer, a</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> resultArray = [];</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>, len=a.length; i &lt; len; i++) &#123;</div><div class="line">		resultArray.push(customizer(a[i]));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> resultArray;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> customizerFn = fn.bind(<span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">	<span class="comment">// 自定义的处理方法</span></div><div class="line">	<span class="keyword">return</span> item*<span class="number">2</span>;</div><div class="line">&#125;);</div><div class="line">decoratoredFn([<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">// 结果为 [2, 4];</span></div></pre></td></tr></table></figure>
-<h4 id="贴合点实际的栗子——单位转换"><a href="#贴合点实际的栗子——单位转换" class="headerlink" title="贴合点实际的栗子——单位转换"></a>贴合点实际的栗子——单位转换</h4><p>对于一维的单位转化，我们可以容易的得出一个通用的公式: 原单位*比例 + 起始偏差值 用代码描述一下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">converter</span>(<span class="params">toUnit, factor, offset, input</span>) </span>&#123;</div><div class="line">    offset = offset || <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> [((offset+input)*factor).toFixed(<span class="number">2</span>), toUnit].join(<span class="string">" "</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>基于converter函数，借用bind的可以包装出各种单位转化的方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> milesToKm = converter.bind(<span class="literal">undefined</span>, <span class="string">'km'</span>, <span class="number">1.60936</span>, <span class="number">0</span>);</div><div class="line"><span class="keyword">var</span> poundsToKg = converter.bind(<span class="literal">undefined</span>, <span class="string">'kg'</span>, <span class="number">0.45460</span>, <span class="number">0</span>);</div><div class="line"><span class="keyword">var</span> farenheitToCelsius = converter.bind(<span class="literal">undefined</span>, <span class="string">'degrees C'</span>,<span class="number">0.5556</span>, <span class="number">-32</span>);</div><div class="line">milesToKm(<span class="number">10</span>);            <span class="comment">// returns "16.09 km"</span></div><div class="line">poundsToKg(<span class="number">2.5</span>);          <span class="comment">// returns "1.14 kg"</span></div><div class="line">farenheitToCelsius(<span class="number">98</span>);   <span class="comment">// returns "36.67 degrees C"</span></div></pre></td></tr></table></figure>
-<p><a href="http://kishorelive.com/2012/02/06/currying-in-javascript-using-bind/" target="_blank" rel="external">该栗子来源戳这里</a></p>
-
-        
-      </div>
-    </div>
-    <a class="read-all-link" href="/2016/11/19/javascript中bind知多少/">阅读全部</a>
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2016/11/19/配合event-pointer实现1px边框/" >
   配合pointer-events实现1px边框
 </a>
@@ -382,6 +532,66 @@
       </div>
     </div>
     <a class="read-all-link" href="/2016/11/19/配合event-pointer实现1px边框/">阅读全部</a>
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/11/19/javascript中bind知多少/" >
+  javascript中bind知多少
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/11/19/javascript中bind知多少/"><span class="article-date">
+  2016-11-19
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/语言/">语言</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>  我们经常将apply, call和bind放在一起来对比他们的区别和用法。提到这三个，很容易想到他们可以改变函数中this的指向。对于bind方法，我们最常见的使用方式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> otherFn = fn.bind(<span class="keyword">this</span>);</div></pre></td></tr></table></figure>
+<p>  其实，bind还有一个被我们忽略了的非常好用的特性——<em style="color: red; font-weight: bold">传参</em></p>
+<h4 id="bind参数"><a href="#bind参数" class="headerlink" title="bind参数"></a>bind参数</h4><blockquote>
+<p>当绑定函数被调用时，这些参数加上绑定函数本身的参数会按照顺序作为原函数运行时的参数。</p>
+</blockquote>
+<p>  来个栗子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fn1 = <span class="function"><span class="keyword">function</span> (<span class="params">arg1, arg2, arg3</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(arg1);</div><div class="line">	<span class="built_in">console</span>.log(arg2);</div><div class="line">	<span class="built_in">console</span>.log(arg3);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> fn2 = fn1.bind(<span class="literal">null</span>, <span class="string">'first'</span>);</div><div class="line">fn2(<span class="string">'second'</span>, <span class="string">'third'</span>); <span class="comment">// 输出为: first second third</span></div></pre></td></tr></table></figure>
+<h4 id="为什么说好用"><a href="#为什么说好用" class="headerlink" title="为什么说好用"></a>为什么说好用</h4><p>  bind的参数可以和绑定函数本身的参数进行拼接，利用这一特性可以实现一些自定义的包装。看下面的使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 原始函数</span></div><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">customizer, a, b</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> customResult = customizer(a, b); <span class="comment">// 使用自定义方式对a，b,key进行处理</span></div><div class="line">	<span class="keyword">if</span> (!customResult) &#123;</div><div class="line">	  <span class="comment">// 默认的处理</span></div><div class="line">	  customResult = a + b</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> customResult;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> decoratoredFn = fn.bind(<span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">	<span class="comment">// 自定义的处理方法</span></div><div class="line">	<span class="keyword">return</span> a*<span class="number">2</span> + b;</div><div class="line">&#125;);</div><div class="line">decoratoredFn(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 结果为 4;</span></div></pre></td></tr></table></figure>
+<p>在原始的函数中，自定义的函数仅仅是一个参数，而具体的实现是在bind的时候确定的。这样，fn可以认为是一个<em style="color:red; font-weight:bold">通用的抽象的模板</em>。额，有点拗口，让我们想象一下map方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>];</div><div class="line"><span class="keyword">var</span> roots = numbers.map(<span class="built_in">Math</span>.sqrt);</div><div class="line"><span class="comment">// roots is now [1, 2, 3]</span></div><div class="line"><span class="comment">// numbers is still [1, 4, 9]</span></div></pre></td></tr></table></figure>
+<p>map方式实现了一个抽象的模板，将一个array转化为另一个array，然后输出。中间具体转化成什么map是不关心的，留给我们来自定义。用bind来搞一搞array的map呢？通用的逻辑：挨个对array中的每一个进行处理得到一个值，这些值组成一个新的array，然后最终输出。具体每一个怎么处理，留给bind了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 原始函数</span></div><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">customizer, a</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> resultArray = [];</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>, len=a.length; i &lt; len; i++) &#123;</div><div class="line">		resultArray.push(customizer(a[i]));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> resultArray;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> customizerFn = fn.bind(<span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">	<span class="comment">// 自定义的处理方法</span></div><div class="line">	<span class="keyword">return</span> item*<span class="number">2</span>;</div><div class="line">&#125;);</div><div class="line">decoratoredFn([<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">// 结果为 [2, 4];</span></div></pre></td></tr></table></figure>
+<h4 id="贴合点实际的栗子——单位转换"><a href="#贴合点实际的栗子——单位转换" class="headerlink" title="贴合点实际的栗子——单位转换"></a>贴合点实际的栗子——单位转换</h4><p>对于一维的单位转化，我们可以容易的得出一个通用的公式: 原单位*比例 + 起始偏差值 用代码描述一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">converter</span>(<span class="params">toUnit, factor, offset, input</span>) </span>&#123;</div><div class="line">    offset = offset || <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> [((offset+input)*factor).toFixed(<span class="number">2</span>), toUnit].join(<span class="string">" "</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>基于converter函数，借用bind的可以包装出各种单位转化的方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> milesToKm = converter.bind(<span class="literal">undefined</span>, <span class="string">'km'</span>, <span class="number">1.60936</span>, <span class="number">0</span>);</div><div class="line"><span class="keyword">var</span> poundsToKg = converter.bind(<span class="literal">undefined</span>, <span class="string">'kg'</span>, <span class="number">0.45460</span>, <span class="number">0</span>);</div><div class="line"><span class="keyword">var</span> farenheitToCelsius = converter.bind(<span class="literal">undefined</span>, <span class="string">'degrees C'</span>,<span class="number">0.5556</span>, <span class="number">-32</span>);</div><div class="line">milesToKm(<span class="number">10</span>);            <span class="comment">// returns "16.09 km"</span></div><div class="line">poundsToKg(<span class="number">2.5</span>);          <span class="comment">// returns "1.14 kg"</span></div><div class="line">farenheitToCelsius(<span class="number">98</span>);   <span class="comment">// returns "36.67 degrees C"</span></div></pre></td></tr></table></figure>
+<p><a href="http://kishorelive.com/2012/02/06/currying-in-javascript-using-bind/" target="_blank" rel="external">该栗子来源戳这里</a></p>
+
+        
+      </div>
+    </div>
+    <a class="read-all-link" href="/2016/11/19/javascript中bind知多少/">阅读全部</a>
   
 
   
