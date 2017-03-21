@@ -84,14 +84,14 @@
             
               <li class="tag-list-container">
                 <a href="javascript:;">标签</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flow/">flow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flow/">flow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-canvas/">javascript canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">6</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">6</span></li></ul>
               </li>
             
           
@@ -136,6 +136,76 @@
   
   
     
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <h1><a href="/archives/2017" class="archive-year">2017</a></h1>
+        </div>
+        <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2017/03/20/基于canvas的图像预加载/" >
+  基于canvas的图像预加载
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2017/03/20/基于canvas的图像预加载/"><span class="article-date">
+  2017-03-20
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-canvas/">javascript canvas</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>在图片多的页面中，为了提高用户体验，我们会对图片进行压缩，采用更小的图片格式让图片尽可能快的展现给用户。在浏览medium.freecodecamp.com中一些文章时，偶然发现在网速不好的时候，会先看到一张模糊的图片，然后再展示出清晰的图。于是打开控制台抓了一下资源，发现展现出的第一张模糊的图片大小只有30*30。通过预加载一张小的图片，可以快速的展示给用户一些东西，减少中间的空白时间。看一看源码，发现是基于cancas来实现的。下面来看看它是怎么做的吧</p>
+<p>首先我们有两张图<br>一张是原始图像：<br><img src="/images/canvas-blur-demo.png" style="width:400px;margin:0 auto;display:block;" alt="demo"><br>另一张是 30*30 的小图：<br><img src="/images/canvas-blur-demo-20.png" style="width:30px;margin:0 auto;display:block;" alt="demo20"></p>
+<p>图片展示的 html 结构如下，原始图像我们先通过 visibility:hidden 隐藏起来。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"img-container is-canvasLoaded"</span> <span class="attr">img-src</span>=<span class="string">"./demo.png"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./demo_min.png"</span> <span class="attr">id</span>=<span class="string">"imgdemo"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">style</span>=<span class="string">"opacity:0;position: absolute;z-index: -1;"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas-container"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./demo2.png"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"origin-img"</span> <span class="attr">style</span>=<span class="string">"opacity:0"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>初始时设置 canvas 的大小略大于我们的 demo_min.png 图片，如 75 * 75，然后：</p>
+<ul>
+<li>获取 demo_min.png 大小 60 * 30</li>
+<li>根据 demo_min.png 的比例，设置一下 canvas 的比例 75 * 37.5</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> imgDemoSize = &#123;</div><div class="line">  <span class="attr">width</span>: imgDemo.offsetWidth,</div><div class="line">  <span class="attr">height</span>: imgDemo.offsetHeight</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> scale = imgDemoSize.width / imgDemoSize.height &gt; canvasSize.width / canvasSize.height ? canvasSize.width / imgDemoSize.width : canvasSize.height / imgDemoSize.height</div><div class="line"><span class="keyword">var</span> scaleSize = &#123;</div><div class="line">  <span class="attr">width</span>: imgDemoSize.width * scale,</div><div class="line">  <span class="attr">height</span>: imgDemoSize.height * scale,</div><div class="line">&#125;</div><div class="line">canvasDom.width = scaleSize.width</div><div class="line">canvasDom.height = scaleSize.height</div></pre></td></tr></table></figure>
+<p>现在html结构如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"img-container is-canvasLoaded"</span> <span class="attr">img-src</span>=<span class="string">"./demo.png"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./demo_min.png"</span> <span class="attr">id</span>=<span class="string">"imgdemo"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">style</span>=<span class="string">"opacity:0;position: absolute;z-index: -1;"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas-container"</span> <span class="attr">width</span>=<span class="string">"75"</span> <span class="attr">height</span>=<span class="string">"37&gt;&lt;/canvas&gt;</span></span></div><div class="line">    &lt;img src="<span class="attr">.</span>/<span class="attr">demo2.png</span>" <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"origin-img"</span> <span class="attr">style</span>=<span class="string">"opacity:0"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>将图像画在 canvas 上：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> context = canvasDom.getContext(<span class="string">'2d'</span>)</div><div class="line"><span class="comment">// drawImage可以是HTMLImageElement</span></div><div class="line">context.drawImage(imgDemo, <span class="number">0</span>,<span class="number">0</span>,<span class="number">60</span>,<span class="number">30</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">75</span>,<span class="number">37</span>)</div></pre></td></tr></table></figure>
+<p>canvas 的 drawImage 方法的第一个参数，允许是 HTMLImageElement 。所以这里直接用 img 元素比较方便。图像画在 canvas 上之后，我们就可以通过 canvas 的 getImageData 方法来获取图像的像素，然后对图像进行高斯模糊处理。模糊处理这里直接使用了 <a href="https://github.com/flozz/StackBlur" target="_blank" rel="external">stackblur.js</a> 。想了解高斯模糊原理的可以参考<a href="http://www.ruanyifeng.com/blog/2012/11/gaussian_blur.html" target="_blank" rel="external">高斯模糊的算法</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> imgData = context.getImageData(<span class="number">0</span>,<span class="number">0</span>,<span class="number">75</span>,<span class="number">37</span>)</div><div class="line"><span class="keyword">var</span> blurImgData = StackBlur.imageDataRGBA(imgData, <span class="number">0</span>,<span class="number">0</span>, <span class="number">75</span>, <span class="number">37</span>, <span class="number">5</span>);</div></pre></td></tr></table></figure>
+<p>模糊处理完之后，putImageData 放在 canvas 中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">context.putImageData(blurImgData, <span class="number">0</span>, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<p>然后展示 canvas , 到此页面上会展示一张模糊的图。</p>
+<p><img src="/images/canvas-blur-result.png" style="width:60%;margin:0 auto;display:block;" alt="blur-result"></p>
+<p>模糊图片出来了，原始图像什么时候展示呢？<br>使用 Img 的 load 事件，原始的图像加载完成后触发 load 事件，将 canvas 隐藏，展示原始图像。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">imgOrigin.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  imgOrigin.style.opacity = <span class="number">1</span></div><div class="line">  canvasDom.style.opacity = <span class="number">0</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>在网速略慢时，我们就会看到页面上会先出现一张模糊的图，然后再呈现出清晰的图。此外可以用 css 的 transition 属性，增加模糊图和原始图 opacity 过度时间，让图片之间的切换看起来更为自然顺畅。</p>
+
+        
+      </div>
+    </div>
+    <a class="read-all-link" href="/2017/03/20/基于canvas的图像预加载/">阅读全部</a>
+  
+
+  
+  
+    
+      
+        </div></section>
       
       
       <section class="archives-wrap">
